@@ -21,17 +21,17 @@
 	{@param? triggerClasses: string}
 	{@param? viewMoreURL: string}
 
-	{let $secondaryItemsFirstGroup: 
-		isNonnull($secondaryItems) ? 
-			isNonnull($secondaryItems[0]) ? 
-				$secondaryItems[0] 
+	{let $secondaryItemsFirstGroup:
+		isNonnull($secondaryItems) ?
+			isNonnull($secondaryItems[0]) ?
+				$secondaryItems[0]
 			:
 				null
 		:
 			null
 	/}
 
-	{let $secondaryItemsSecondGroup: 
+	{let $secondaryItemsSecondGroup:
 		isNonnull($secondaryItems) ?
 			isNonnull($secondaryItems[1]) ?
 				$secondaryItems[1]
@@ -72,7 +72,7 @@
 			$totalPrimaryItems
 	/}
 
-	{let $tempDefaultMaxSecondaryItems: 
+	{let $tempDefaultMaxSecondaryItems:
 		$maxSecondaryItems ?
 		$totalSecondaryItems > $maxSecondaryItems ?
 			$maxSecondaryItems
@@ -93,8 +93,8 @@
 		$tempDefaultMaxSecondaryItems
 	/}
 
-	{let $showingItems: 
-		$totalSecondaryItems == 0 ? 
+	{let $showingItems:
+		$totalSecondaryItems == 0 ?
 			$totalPrimaryItems > $defaultMaxTotalItems ?
 				$defaultMaxTotalItems
 			:
@@ -109,7 +109,7 @@
 				$totalSecondaryItems > $defaultMaxSecondaryItems ?
 					$totalPrimaryItems + $defaultMaxSecondaryItems
 				:
-					$totalPrimaryItems + $totalSecondaryItems        
+					$totalPrimaryItems + $totalSecondaryItems
 	/}
 
   {let $primaryDropdownItems: [
@@ -119,15 +119,15 @@
     'type': 'group'
   ] /}
 
-  {let $secondaryDropdownItemsSecondGroup: 
-  	$secondaryItemsSecondGroup and $totalSecondaryItemsFirstGroup < $defaultMaxSecondaryItems ? 
+  {let $secondaryDropdownItemsSecondGroup:
+  	$secondaryItemsSecondGroup and $totalSecondaryItemsFirstGroup < $defaultMaxSecondaryItems ?
 		[
 			'items': $secondaryItemsSecondGroup.items,
 			'label': $secondaryItemsSecondGroup.label,
 			'maxItems': $defaultMaxSecondaryItems - $totalSecondaryItemsFirstGroup,
 			'type': 'group'
   		]
-	: 
+	:
 		null
 	/}
 
@@ -144,8 +144,8 @@
 		null
 	/}
 
-	{let $items: 
-		$secondaryDropdownItemsFirstGroup and $secondaryDropdownItemsSecondGroup ? 
+	{let $items:
+		$secondaryDropdownItemsFirstGroup and $secondaryDropdownItemsSecondGroup ?
 			[
 				$primaryDropdownItems,
 				$secondaryDropdownItemsFirstGroup,
@@ -155,7 +155,7 @@
 			$secondaryDropdownItemsFirstGroup ?
 				[
 					$primaryDropdownItems,
-					$secondaryDropdownItemsFirstGroup   
+					$secondaryDropdownItemsFirstGroup
 				]
 			:
 				[
@@ -164,13 +164,13 @@
 	/}
 
 	{let $showMoreButton:
-		$showingItems < $totalItems ? 
+		$showingItems < $totalItems ?
 			isNonnull($viewMoreURL) ?
 				[
 					'buttonStyle': 'secondary',
 					'href': $viewMoreURL,
 					'label': 'More',
-				] 
+				]
 			:
 				[
 					'label': 'More',
@@ -192,7 +192,7 @@
 		{param caption kind="text"}
 			{if $showMoreButton}
 				{msg desc="Says how many items of the total are being showed"}
-					showing-{$showingItems}-of-{$totalItems}-elements
+					showing-{$showingItems}-of-{$totalItems}-items
 				{/msg}
 			{/if}
 		{/param}
