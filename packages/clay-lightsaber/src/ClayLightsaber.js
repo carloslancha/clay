@@ -36,7 +36,7 @@ ClayLightsaber.STATE = {
 	 * @type {?string}
 	 * @default blue
 	 */
-    color: Config.string().value('blue'),
+    color: Config.oneOf(['red','blue','purple','green']).value('blue'),
 
     /**
 	 * CSS classes to be applied to the element.
