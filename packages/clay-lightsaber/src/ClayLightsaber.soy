@@ -4,6 +4,7 @@
  * This renders the component's whole content.
  */
 {template .render}
+	{@param? _handleHiltClick: any}
 	{@param? active: bool}
 	{@param? color: string}
 	{@param? elementClasses: string}
@@ -26,7 +27,7 @@
 	{/let}
 
 	<div {$attributes}>
-		<button class="hilt" data-onclick="_handleHiltClick"></button>
+		<button class="hilt" data-onclick="{$_handleHiltClick}"></button>
 		<div class="switch"></div>
 		<div class="plasma {$color ?: 'blue'}"></div>
 	</div>
