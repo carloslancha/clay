@@ -4,11 +4,16 @@
  * This renders the component's whole content.
  */
 {template .render}
+	{@param? active: bool}
 	{@param? elementClasses: string}
 	{@param? id: string}
 
 	{let $attributes kind="attributes"}
 		class="clay-lightsaber
+			{if $active}
+				{sp}active
+			{/if}
+
 			{if $elementClasses}
 				{sp}{$elementClasses}
 			{/if}
