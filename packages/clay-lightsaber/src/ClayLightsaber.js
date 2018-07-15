@@ -9,6 +9,9 @@ import templates from './ClayLightsaber.soy.js';
  * Metal ClayLightsaber component.
  */
 class ClayLightsaber extends Component {
+    _handleHiltClick() {
+        this.active = !this.active;
+    }
 }
 
 /**
