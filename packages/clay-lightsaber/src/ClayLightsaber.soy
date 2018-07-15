@@ -5,6 +5,7 @@
  */
 {template .render}
 	{@param? active: bool}
+	{@param? color: string}
 	{@param? elementClasses: string}
 	{@param? id: string}
 
@@ -27,6 +28,6 @@
 	<div {$attributes}>
 		<button class="hilt" data-onclick="_handleHiltClick"></button>
 		<div class="switch"></div>
-		<div class="plasma blue"></div>
+		<div class="plasma {$color ?: 'blue'}"></div>
 	</div>
 {/template}
