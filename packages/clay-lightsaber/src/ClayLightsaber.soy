@@ -27,8 +27,31 @@
 	{/let}
 
 	<div {$attributes}>
-		<button class="hilt" data-onclick="{$_handleHiltClick}"></button>
-		<div class="switch"></div>
-		<div class="plasma {$color ?: 'blue'}"></div>
+		{call .hilt}
+			{param _handleHiltClick: $_handleHiltClick /}
+		{/call}
+
+		{call .plasma}
+			{param color: $color ?: 'blue' /}
+		{/call}
 	</div>
+{/template}
+
+/**
+ * Hilt
+ */
+{template .hilt}
+	{@param _handleHiltClick: any}	
+
+	<button class="hilt" data-onclick="{$_handleHiltClick}"></button>
+	<div class="switch"></div>
+{/template}
+
+/**
+ * Plasma
+ */
+{template .plasma}
+	{@param color: string}
+
+	<div class="plasma {$color}"></div>
 {/template}
