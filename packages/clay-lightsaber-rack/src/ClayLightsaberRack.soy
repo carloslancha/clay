@@ -4,6 +4,10 @@
  * This renders the component's whole content.
  */
 {template .render}
+	{@param lightsabers: list<[
+		active: bool,
+		color: string
+	]>}
 	{@param? elementClasses: string}
 	{@param? id: string}
 
@@ -19,5 +23,16 @@
 		{/if}
 	{/let}
 
-	<div {$attributes}>Hello World</div>
+	<div {$attributes}>
+		<div class="row">
+			{foreach $lightsaber in $lightsabers}
+				<div class="col-md-2">
+					{call ClayLightsaber.render}
+						{param active: $lightsaber.active /}
+						{param color: $lightsaber.color /}
+					{/call}
+				</div>
+			{/foreach}
+		</div>
+	</div>
 {/template}

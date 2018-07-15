@@ -1,3 +1,5 @@
+import 'clay-lightsaber';
+
 import Component from 'metal-component';
 import defineWebComponent from 'metal-web-component';
 import Soy from 'metal-soy';
@@ -34,6 +36,14 @@ ClayLightsaberRack.STATE = {
      * @default undefined
      */
     id: Config.string(),
+
+    /**
+     * List of lighsabers
+     */
+    lightsabers: Config.arrayOf(Config.shapeOf({
+        active: Config.bool(),
+        color: Config.oneOf(['red','blue','purple','green']).value('blue'), 
+    })).required(),
 };
 
 defineWebComponent('clay-lightsaber-rack', ClayLightsaberRack);
