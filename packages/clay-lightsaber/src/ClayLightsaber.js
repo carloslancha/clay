@@ -1,4 +1,4 @@
-import Component from 'metal-component';
+import ClayComponent from 'clay-component';
 import defineWebComponent from 'metal-web-component';
 import Soy from 'metal-soy';
 import {Config} from 'metal-state';
@@ -8,9 +8,9 @@ import templates from './ClayLightsaber.soy.js';
 /**
  * Metal ClayLightsaber component.
  */
-class ClayLightsaber extends Component {
+class ClayLightsaber extends ClayComponent {
     _handleHiltClick() {
-        this.active = !this.active;
+        this.emit('hiltClicked');
     }
 }
 

@@ -11,6 +11,14 @@ import templates from './ClayLightsaberRack.soy.js';
  * Metal ClayLightsaberRack component.
  */
 class ClayLightsaberRack extends Component {
+    _handleLightsaberHiltClicked(event) {
+        let position = event.target.data.position;
+
+        let lightsaber = this.lightsabers[position];
+        lightsaber.active = !lightsaber.active;
+
+        this.lightsabers = this.lightsabers;
+    }
 }
 
 /**

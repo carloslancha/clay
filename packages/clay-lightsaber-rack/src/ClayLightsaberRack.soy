@@ -8,6 +8,7 @@
 		active: bool,
 		color: string
 	]>}
+	{@param? _handleLightsaberHiltClicked: any}
 	{@param? elementClasses: string}
 	{@param? id: string}
 
@@ -29,8 +30,14 @@
 				<div class="col-md-2">
 					{call ClayLightsaber.render}
 						{param active: $lightsaber.active /}
+						{param data: [
+							'position': index($lightsaber)
+						 ] /}
 						{param color: $lightsaber.color /}
 						{param contentRenderer: 'noswitch' /}
+						{param events: [
+							'hiltClicked': $_handleLightsaberHiltClicked
+						] /}
 					{/call}
 				</div>
 			{/foreach}
