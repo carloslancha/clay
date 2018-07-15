@@ -30,6 +30,15 @@ ClayLightsaber.STATE = {
     active: Config.bool().value(false),
 
     /**
+	 * Color of the lightsaber.
+	 * @instance
+	 * @memberof ClayLightsaber
+	 * @type {?string}
+	 * @default blue
+	 */
+    color: Config.string().value('blue'),
+
+    /**
 	 * CSS classes to be applied to the element.
 	 * @instance
 	 * @memberof ClayLightsaber
