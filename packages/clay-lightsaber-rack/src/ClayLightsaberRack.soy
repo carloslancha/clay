@@ -30,9 +30,19 @@
 					{call ClayLightsaber.render}
 						{param active: $lightsaber.active /}
 						{param color: $lightsaber.color /}
+						{param contentRenderer: 'noswitch' /}
 					{/call}
 				</div>
 			{/foreach}
 		</div>
 	</div>
 {/template}
+
+/**
+ * Hilt without switch
+ */
+{deltemplate ClayLightsaber.Hilt variant="'noswitch'"}
+	{@param _handleHiltClick: any}
+
+	<button class="hilt" data-onclick="{$_handleHiltClick}"></button>
+{/deltemplate}

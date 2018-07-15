@@ -7,6 +7,7 @@
 	{@param? _handleHiltClick: any}
 	{@param? active: bool}
 	{@param? color: string}
+	{@param? contentRenderer: string}
 	{@param? elementClasses: string}
 	{@param? id: string}
 
@@ -27,9 +28,9 @@
 	{/let}
 
 	<div {$attributes}>
-		{call .hilt}
+		{delcall ClayLightsaber.Hilt variant="$contentRenderer"}
 			{param _handleHiltClick: $_handleHiltClick /}
-		{/call}
+		{/delcall}
 
 		{call .plasma}
 			{param color: $color ?: 'blue' /}
@@ -40,12 +41,12 @@
 /**
  * Hilt
  */
-{template .hilt}
+{deltemplate ClayLightsaber.Hilt}
 	{@param _handleHiltClick: any}	
 
 	<button class="hilt" data-onclick="{$_handleHiltClick}"></button>
 	<div class="switch"></div>
-{/template}
+{/deltemplate}
 
 /**
  * Plasma
