@@ -18,6 +18,15 @@ class ClayLightsaber extends Component {
  */
 ClayLightsaber.STATE = {
     /**
+	 * Flag to indicate if the lightsaber is on or not.
+	 * @instance
+	 * @memberof ClayLightsaber
+	 * @type {?bool}
+	 * @default false
+	 */
+    active: Config.bool().value(false),
+
+    /**
 	 * CSS classes to be applied to the element.
 	 * @instance
 	 * @memberof ClayLightsaber
