@@ -1,0 +1,33 @@
+buildscript {
+	dependencies {
+        classpath group: "com.liferay", name: "com.liferay.gradle.plugins.soy", version: "3.1.4"
+	}
+
+	repositories {
+		maven {
+			url "https://cdn.lfrs.sl/repository.liferay.com/nexus/content/groups/public"
+		}
+	}
+}
+
+subprojects {
+	apply plugin: "com.liferay.soy"
+
+	repositories {
+		maven {
+			url "https://cdn.lfrs.sl/repository.liferay.com/nexus/content/groups/public"
+		}
+	}
+
+	dependencies {
+	    soy group: "com.google.template", name: "soy", version: soyVersion
+	}
+	
+	buildSoy {
+		source = ['src']
+	} 
+	
+	task cleanSoy(type: Delete) {
+		delete fileTree(dir: "src", include: "**/*.soy.js")
+	}
+}

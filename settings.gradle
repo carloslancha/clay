@@ -1,0 +1,5 @@
+new File("./packages").listFiles().each({file ->
+	if(file.name.startsWith("clay-")) {
+		include "packages:"+file.name
+	}
+})
